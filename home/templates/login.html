@@ -1,0 +1,120 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+    <meta charset="utf-8">
+    <title>Bezaleel Court - Login</title>
+    <meta name="keywords" content="HTML, CSS, JavaScript, Bootstrap">
+    <meta name="description" content="Real Estate HTML Template">
+    <meta name="author" content="themesflat.com">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="{% static 'fonts/fonts.css' %}">
+    <link rel="stylesheet" href="{% static 'fonts/font-icons.css' %}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/swiper-bundle.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/animate.css' %}">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="{% static 'images/logo/favicon.png' %}">
+    <link rel="apple-touch-icon" href="{% static 'images/logo/favicon.png' %}">
+</head>
+
+<body class="body">
+
+    <!-- Preloader -->
+    <div class="preload preload-container">
+        <div class="preload-logo">
+            <div class="spinner"></div>
+            <span class="icon icon-villa-fill"></span>
+        </div>
+    </div>
+
+    <div id="wrapper">
+        <div id="pagee" class="clearfix">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+
+                    <!-- Display Messages -->
+                    {% if messages %}
+                        <div>
+                            {% for message in messages %}
+                                <div class="alert alert-{{ message.tags }}">{{ message }}</div>
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+
+                    <div class="flat-account">
+                        <div class="banner-account">
+                            <img src="{% static 'images/banner/banner-account1.jpg' %}" alt="Login Banner">
+                        </div>
+
+                        <!-- Login Form -->
+                        <form method="POST" class="form-account" action="{% url 'login' %}">
+                            {% csrf_token %}
+                            <div class="title-box">
+                                <h4>Login</h4>
+                            </div>
+
+                            <div class="box">
+                                <!-- Email Field -->
+                                <fieldset class="box-fieldset">
+                                    <label for="email">Email</label>
+                                    <div class="ip-field">
+                                        <svg class="icon" width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="..." stroke="#A3ABB0" stroke-linecap="round" stroke-linejoin="round" />
+                                        </svg>
+                                        <input type="text" id="email" name="email" class="form-control" placeholder="Your email" required>
+                                    </div>
+                                </fieldset>
+
+                                <!-- Password Field -->
+                                <fieldset class="box-fieldset">
+                                    <label for="password">Password</label>
+                                    <div class="ip-field">
+                                        <svg class="icon" width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="..." stroke="#A3ABB0" stroke-linecap="round" stroke-linejoin="round" />
+                                        </svg>
+                                        <input type="password" id="password" name="password" class="form-control" placeholder="Your password" required>
+                                    </div>
+                                </fieldset>
+                            </div>
+
+                            <div class="box box-btn">
+                                <button type="submit" class="tf-btn primary w-100">Login</button>
+                                <div class="text text-center">
+                                    Don’t have an account? 
+                                    <a href="{% url 'register' %}" class="text-primary">Register</a>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+
+                </div> 
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script type="text/javascript" src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/jquery.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/swiper-bundle.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/carousel.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/plugin.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/jquery.nice-select.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/rangle-slider.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/countto.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/shortcodes.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/animation_heading.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/lazysize.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/main.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/chart.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/chart-init.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/jqueryui.min.js' %}"></script>
+    
+</body>
+</html>

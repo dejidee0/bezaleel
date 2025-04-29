@@ -1,0 +1,25 @@
+{
+  "version": 2,
+  "builds": [
+      {
+          "src": "build_files.sh",
+          "use": "@vercel/static-build",
+          "config": { "distDir": "vercel/output" }
+      },
+      {
+          "src": "property/wsgi.py",
+          "use": "@vercel/python",
+          "config": { "runtime": "edge" }
+      }
+  ],
+  "routes": [
+      {
+          "src": "/static/(.*)",
+          "dest": "/static/"
+      },
+      {
+          "src": "/(.*)",
+          "dest": "property/wsgi.py"
+      }
+  ]
+}

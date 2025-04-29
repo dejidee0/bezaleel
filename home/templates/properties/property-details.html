@@ -1,0 +1,256 @@
+{% extends 'properties/base.html' %}
+{% load static %}
+
+<title>{% block title %}Detail Page{% endblock %}</title>
+
+{% block content %}
+            
+                <!-- Mobile Menu  -->
+                <div class="close-btn"><span class="icon flaticon-cancel-1"></span></div>    
+                <div class="mobile-menu">
+                    <div class="menu-backdrop"></div>                            
+                    <nav class="menu-box">
+                        <div class="nav-logo"><a href="/"><img src="images/logo/logo%402x.png" alt="nav-logo" width="174" height="44"></a></div>
+                        <div class="bottom-canvas">
+                            <!-- <div class="login-box flex align-center">
+                                <a href="#modalLogin" data-bs-toggle="modal">Login</a>
+                                <span>/</span>
+                                <a href="#modalRegister" data-bs-toggle="modal">Register</a>
+                            </div> -->
+                            <div class="menu-outer"></div>
+                            <div class="button-mobi-sell">
+                                <a class="tf-btn primary" href="{% url 'direct_contact' %}">Direct Contact</a>
+                            </div> 
+                            <div class="mobi-icon-box">
+                                <div class="box d-flex align-items-center">
+                                    <span class="icon icon-phone2"></span>
+                                    <div>1-333-345-6868</div>
+                                </div>
+                                <div class="box d-flex align-items-center">
+                                    <span class="icon icon-mail"></span>
+                                    <div>themesflat@gmail.com</div>
+                                </div>
+                            </div>
+                        </div>
+                    </nav>                
+                </div>
+                <!-- End Mobile Menu -->
+            </header>
+            <!-- End Main Header -->
+            <div class="flat-section-v4">
+                <div class="container">
+                    <div class="header-property-detail">
+                        <div class="content-top d-flex justify-content-between align-items-center">
+                            <h3 class="title link fw-8">{{ property.title}}</h3>
+                            <div class="box-price d-flex align-items-end">
+                                <h3 class="fw-8">₦{{ property.price}}</h3>
+                                <span class="body-1 text-variant-1">/month</span>
+                            </div>
+                        </div>
+                        <div class="content-bottom">
+                            <div class="box-left">
+                                <div class="info-box">
+                                    <div class="label">Features</div>
+                                    <ul class="meta">
+                                        <li class="meta-item">
+                                            <i class="icon icon-bed"></i>
+                                            <span class="text-variant-1">Beds:</span>
+                                            <span class="fw-6">{{property.bedrooms}}</span>
+                                        </li>
+                                        <li class="meta-item">
+                                            <i class="icon icon-bath"></i>
+                                            <span class="text-variant-1">Baths:</span>
+                                            <span class="fw-6">{{property.bathrooms}}</span>
+                                        </li>
+                                        <li class="meta-item">
+                                            <i class="icon icon-sqft"></i>
+                                            <span class="text-variant-1">Sqft:</span>
+                                            <span class="fw-6">{{property.size}}</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="info-box">
+                                    <div class="label">Location</div>
+                                    <p class="meta-item"><span class="icon icon-mapPin"></span><span class="text-variant-1">{{property.address}}</span></p>
+                                </div>
+                            </div>
+                           
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <section class="flat-slider-detail-v1 px-10">
+                <div class="swiper tf-sw-location" data-preview="3" data-tablet="2" data-mobile-sm="2" data-mobile="1" data-space-lg="10" data-space-md="10" data-space="10" data-pagination="1" data-pagination-sm="2"  data-pagination-md="2" data-pagination-lg="3">
+                    <div class="swiper-wrapper">
+                        {% for image in images %}
+                        <div class="swiper-slide">
+                            <a href="#" data-fancybox="gallery" class="box-img-detail d-block">
+                                <img src="{{ image.image.url }}" alt="img-property">
+                            </a>
+                        </div>
+                        {% endfor %}
+                    </div>
+                  
+                    <div class="sw-pagination sw-pagination-location text-center"></div>
+                </div>
+            </section>
+
+            <section class="flat-section-v3 flat-property-detail">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xl-8 col-lg-7">
+                            <div class="single-property-element single-property-desc">
+                                <h5 class="fw-6 title">Description</h5>
+                                <p class="text-variant-1">{{property.description}}</p>
+                            </div>
+                            <div class="single-property-element single-property-overview">
+                                <h6 class="title fw-6">Overview</h6>
+                                <ul class="info-box">
+                                    <li class="item">
+                                        <a href="#" class="box-icon w-52"><i class="icon icon-house-line"></i></a>
+                                        <div class="content">
+                                            <span class="label">ID:</span>
+                                            <span>{{property.id}}</span>
+                                        </div>
+                                    </li>
+                                    <li class="item">
+                                        <a href="#" class="box-icon w-52"><i class="icon icon-sliders-horizontal"></i></a>
+                                        <div class="content">
+                                            <span class="label">Type:</span>
+                                            {% if property.label == 'land_to_sell' %}
+                                                <span>Land</span>
+                                            {% else %}
+                                                <span>Building</span>
+                                            {% endif %}
+                                        </div>
+                                    </li>
+                                    <li class="item">
+                                        <a href="#" class="box-icon w-52"><i class="icon icon-bed1"></i></a>
+                                        <div class="content">
+                                            <span class="label">Bedrooms:</span>
+                                            <span> Rooms</span>
+                                        </div>
+                                    </li>
+                                    <li class="item">
+                                        <a href="#" class="box-icon w-52"><i class="icon icon-bathtub"></i></a>
+                                        <div class="content">
+                                            <span class="label">Bathrooms:</span>
+                                            <span>{{property.rooms}} Rooms</span>
+                                        </div>
+                                    </li>
+                                    <li class="item">
+                                        <a href="#" class="box-icon w-52"><i class="icon icon-crop"></i></a>
+                                        <div class="content">
+                                            <span class="label">Land Size:</span>
+                                            <span>{{property.land_area}} SqFt</span>
+                                        </div>
+                                    </li>
+                                    <li class="item">
+                                        <a href="#" class="box-icon w-52"><i class="icon icon-hammer"></i></a>
+                                        <div class="content">
+                                            <span class="label">Year Built:</span>
+                                            <span>{{property.year_built}}</span>
+                                        </div>
+                                    </li>
+                                    <li class="item">
+                                        <a href="#" class="box-icon w-52"><i class="icon icon-ruler"></i></a>
+                                        <div class="content">
+                                            <span class="label">Size:</span>
+                                            <span>{{property.size}} SqFt</span>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            {% if property.video_url %}
+                            <div class="single-property-element single-property-video">
+                                <h5 class="title fw-6">Video</h5>
+                                <div class="img-video">
+                                    {% with property.images.first as first_image %}
+                                        {% if first_image %}
+                                            <img class="lazyload w-5 h-5" data-src="{{ first_image.image.url }}" src="{{ first_image.image.url }}" alt="Property Image">
+                                        {% else %}
+                                            <img src="{% static 'default-image.jpg' %}" alt="No Image Available">
+                                        {% endif %}
+                                    {% endwith %}     
+                                    <a href="{{ property.video_url }}" data-fancybox="gallery2" class="btn-video"> 
+                                        <span class="icon icon-play"></span>
+                                    </a>
+                                </div>
+                            </div>
+                            {% endif %}
+                                    
+                        </div>
+                        <div class="col-xl-4 col-lg-5">
+                            <div class="single-sidebar fixed-sidebar">
+                                <div class="widget-box single-property-contact">
+                                    <h5 class="title fw-6">Contact Sellers</h5>
+                                    <div class="box-avatar">
+                                        <div class="avatar avt-100 round">
+                                            <img src="{{property.agent.profile_picture.url}}" alt="avatar">
+                                        </div>
+                                        <div class="info">
+                                            <h6 class="name">{{property.agent.first_name}} {{property.agent.last_name}}</h6>
+                                            <ul class="list">
+                                                <li class="d-flex align-items-center gap-4 text-variant-1"><i class="icon icon-phone"></i>{{property.agent.phone_number}}</li>
+                                                <li class="d-flex align-items-center gap-4 text-variant-1"><i class="icon icon-mail"></i>{{property.agent.email}}</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="flat-tab flat-tab-form widget-filter-search widget-box">
+                                
+                                    <div class="tab-content">
+                                        <div class="tab-pane fade active show" role="tabpanel">
+                                            <div class="form-sl">
+                                                <form method="post">
+                                                    <div class="wd-filter-select">
+                                                        <div class="inner-group">
+                                                            
+                                                                
+                                                               
+                                                                
+                                                                
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                        
+                                    </div>
+                                </div>
+                                <div class="widget-box single-property-whychoose">
+                                    <h5 class="title fw-6">Why Choose Us?</h5>
+                                    <ul class="box-whychoose">
+                                        <li class="item-why">
+                                            <i class="icon icon-secure"></i>
+                                            Secure Booking
+                                        </li>
+                                        <li class="item-why">
+                                            <i class="icon icon-guarantee"></i>
+                                            Best Price Guarantee
+                                        </li>
+                                        <li class="item-why">
+                                            <i class="icon icon-booking"></i>
+                                            Easy Booking Process
+                                        </li>
+                                        <li class="item-why">
+                                            <i class="icon icon-support"></i>
+                                            Available Support 24/7
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="box-latest-property">
+                                    
+                                           
+                                 
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </section>
+            
+{% endblock %}

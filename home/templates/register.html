@@ -1,0 +1,149 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+    <meta charset="utf-8">
+    <title>Bezaleel Court - Register</title>
+    <meta name="keywords" content="HTML, CSS, JavaScript, Bootstrap">
+    <meta name="description" content="Real Estate HTML Template">
+    <meta name="author" content="themesflat.com">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="{% static 'fonts/fonts.css' %}">
+    <link rel="stylesheet" href="{% static 'fonts/font-icons.css' %}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/swiper-bundle.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/animate.css' %}">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="{% static 'images/logo/favicon.png' %}">
+    <link rel="apple-touch-icon" href="{% static 'images/logo/favicon.png' %}">
+</head>
+
+<body class="body">
+    <!-- Preloader -->
+    <div class="preload preload-container">
+        <div class="preload-logo">
+            <div class="spinner"></div>
+            <span class="icon icon-villa-fill"></span>
+        </div>
+    </div>
+
+    <div id="wrapper">
+        <div id="pagee" class="clearfix">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    {% if messages %}
+                        <div>
+                            {% for message in messages %}
+                                <div class="alert alert-{{ message.tags }}">{{ message }}</div>
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+
+                    <div class="flat-account">
+                        <div class="banner-account">
+                            <img src="{% static 'images/banner/banner-account2.jpg' %}" alt="banner">
+                        </div>
+
+                        <form class="form-account" action="{% url 'register' %}" method="POST" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            <div class="title-box">
+                                <h4>Register</h4>
+                            </div>
+
+                            <div class="box">
+                                <fieldset class="box-fieldset">
+                                    <label>First name</label>
+                                    <div class="ip-field">
+                                        <input type="text" name="first_name" class="form-control" placeholder="First name" required>
+                                    </div>
+                                </fieldset>
+                                
+                                <fieldset class="box-fieldset">
+                                    <label>Last name</label>
+                                    <div class="ip-field">
+                                        <input type="text" name="last_name" class="form-control" placeholder="Last name" required>
+                                    </div>
+                                </fieldset>
+                                
+                                <fieldset class="box-fieldset">
+                                    <label>Address</label>
+                                    <div class="ip-field">
+                                        <input type="text" name="address" class="form-control" placeholder="Address" required>
+                                    </div>
+                                </fieldset>
+                                
+                                <fieldset class="box-fieldset">
+                                    <label>Bio</label>
+                                    <div class="ip-field">
+                                        <input type="text" name="bio" class="form-control" placeholder="Bio" required>
+                                    </div>
+                                </fieldset>
+                                
+                                <fieldset class="box-fieldset">
+                                    <label>Email address</label>
+                                    <div class="ip-field">
+                                        <input type="email" name="email" class="form-control" placeholder="Email address" required>
+                                    </div>
+                                </fieldset>
+                                
+                                <fieldset class="box-fieldset">
+                                    <label>Phone number</label>
+                                    <div class="ip-field">
+                                        <input type="number" name="phone_number" class="form-control" placeholder="Phone number" required>
+                                    </div>
+                                </fieldset>
+                                
+                                <fieldset class="box-fieldset">
+                                    <label>Password</label>
+                                    <div class="ip-field">
+                                        <input type="password" name="password" class="form-control" placeholder="Your password" required>
+                                    </div>
+                                </fieldset>
+                                
+                                <fieldset class="box-fieldset">
+                                    <label>Confirm password</label>
+                                    <div class="ip-field">
+                                        <input type="password" name="confirm_password" class="form-control" placeholder="Confirm password" required>
+                                    </div>
+                                </fieldset>
+                                
+                                <fieldset class="box-fieldset">
+                                    <label>Profile Picture</label>
+                                    <div class="ip-field">
+                                        <input type="file" name="profile_picture" class="form-control" accept="image/*" required>
+                                    </div>
+                                </fieldset>
+
+                                <button type="submit" class="btn btn-primary">Register</button>
+                            </div>
+                        </form>
+                    </div>
+                </div> 
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script type="text/javascript" src="{% static 'js/jquery.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/swiper-bundle.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/carousel.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/plugin.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/jquery.nice-select.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/rangle-slider.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/countto.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/shortcodes.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/animation_heading.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/lazysize.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/main.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/chart.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/chart-init.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/jqueryui.min.js' %}"></script>
+</body>
+</html>

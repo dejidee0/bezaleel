@@ -1,0 +1,206 @@
+{% extends 'properties/base.html' %} {% load static %} {% block title %}Contact
+Us{% endblock %} {% block content %}
+<!-- Preload -->
+<div class="preload preload-container">
+  <div class="preload-logo">
+    <div class="spinner"></div>
+    <span class="icon icon-villa-fill"></span>
+  </div>
+</div>
+<!-- /Preload -->
+
+<div id="wrapper">
+  <div id="page" class="clearfix">
+    <!-- Page Title -->
+    <section
+      class="flat-title-page"
+      style="
+        background-image: url('{% static 'images/page-title/page-title-1.jpg' %}');
+      "
+    >
+      <div class="container">
+        <div class="breadcrumb-content">
+          <ul class="breadcrumb">
+            <li><a href="{% url 'home' %}" class="text-white">Home</a></li>
+            <li class="text-white">/ Direct Contact</li>
+          </ul>
+          <h1 class="text-center text-white title">Contact Us</h1>
+        </div>
+      </div>
+    </section>
+    <!-- End Page Title -->
+
+    <section class="flat-section flat-contact">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-lg-8">
+            <div class="contact-content text-center">
+              <h2 class="fw-bold">Send Your Specific Request</h2>
+              <p class="text-muted pb-5">
+                Can't find what you're looking for? Or want to talk directly
+                with us? Let us know!
+              </p>
+              <form
+                id="contactform"
+                method="POST"
+                action="{% url 'direct_contact' %}"
+                class="form-contact mx-auto"
+              >
+                {% csrf_token %}
+                <div class="box grid-2">
+                  <fieldset>
+                    <label for="name">Full Name:</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      placeholder="Your name"
+                      name="name"
+                      id="name"
+                      required
+                    />
+                  </fieldset>
+                  <fieldset>
+                    <label for="email">Email Address:</label>
+                    <input
+                      type="email"
+                      class="form-control"
+                      placeholder="Email"
+                      name="email"
+                      id="email"
+                      required
+                    />
+                  </fieldset>
+                </div>
+                <div class="box grid-2">
+                  <fieldset>
+                    <label for="phone">Phone Number:</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      placeholder="0123456789"
+                      name="phone"
+                      id="phone"
+                      required
+                    />
+                  </fieldset>
+                  <fieldset>
+                    <label for="subject">Subject:</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      placeholder="Enter Subject"
+                      name="subject"
+                      id="subject"
+                    />
+                  </fieldset>
+                </div>
+                <div class="box grid-2">
+                  <fieldset>
+                    <label for="urgency">How Urgent?</label>
+                    <select
+                      style="border-radius: 35px"
+                      class="form-control"
+                      name="urgency"
+                      id="urgency"
+                      required
+                    >
+                      <option value="" disabled selected>
+                        Select urgency level
+                      </option>
+                      <option value="Immediately">Immediately</option>
+                      <option value="I'm deliberating,let's talk">
+                        I'm deliberating,let's talk
+                      </option>
+                    </select>
+                  </fieldset>
+                  <fieldset>
+                    <label for="subject">Location:</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      placeholder="Enter Location"
+                      name="location"
+                      id="location"
+                    />
+                  </fieldset>
+                </div>
+                <div class="box grid-2">
+                  <fieldset>
+                    <label for="urgency">Property Type:</label>
+                    <select
+                      style="border-radius: 35px"
+                      class="form-control"
+                      name="urgency"
+                      id="urgency"
+                      required
+                    >
+                      <option value="" disabled selected>
+                        Select property type
+                      </option>
+                      <option value="Commercial Land">Commercial Land</option>
+                      <option value="Office Space">Office Space</option>
+                      <option value="Residential Land">Residential Land</option>
+                      <option value="Apartments">Apartments</option>
+                      <option value="Bungalows">Bungalows</option>
+                      <option value="Fully Detached Duplexes">
+                        Fully Detached Duplexes
+                      </option>
+                      <option value="Semi-Detached Duplexes">
+                        Semi-Detached Duplexes
+                      </option>
+                      <option value="STerrace Duplexes">
+                        Terrace Duplexes
+                      </option>
+                      <option value="Maisonettes">Maisonettes</option>
+                      <option value="Penthouses">Penthouses</option>
+                    </select>
+                  </fieldset>
+                  <fieldset>
+                    <label for="subject">Price:</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      placeholder="Enter Price"
+                      name="price"
+                      id="price"
+                    />
+                  </fieldset>
+                </div>
+
+                <fieldset>
+                  <label for="message">Your Message:</label>
+                  <textarea
+                    name="message"
+                    class="form-control"
+                    cols="30"
+                    rows="6"
+                    placeholder="Message"
+                    id="message"
+                    required
+                  ></textarea>
+                </fieldset>
+                <div class="send-wrap">
+                  <button class="tf-btn primary" type="submit">
+                    Send Message
+                  </button>
+                </div>
+                {% if messages %}
+                <div class="messages pt-3">
+                  {% for message in messages %}
+                  <div
+                    class="alert {% if message.tags == 'success' %}alert-success{% endif %} {% if message.tags == 'error' %}alert-danger{% endif %}"
+                  >
+                    {{ message }}
+                  </div>
+                  {% endfor %}
+                </div>
+                {% endif %}
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,178 @@
+{% extends 'properties/base.html' %}
+
+{% load static %}
+{% block title %}Category{% endblock %}
+
+{% block content %}
+    <!-- preload -->
+    <div class="preload preload-container">
+        <div class="preload-logo">
+            <div class="spinner"></div>
+            <span class="icon icon-villa-fill"></span>
+        </div>
+    </div>
+    <!-- /preload -->
+
+    <section class="flat-section flat-recommended">
+        <div class="container">
+            <div class="box-title-listing">
+                <div class="box-left">
+                    <h3 class="fw-8">Property Listing</h3>
+                    {% if properties%}
+                    <p class="text">There are currently {{ properties.paginator.count }} properties.</p>
+                    {% else %}
+                    <p class="text">There are currently no properties.</p>
+                    {% endif %}
+                </div>
+                <div class="box-filter-tab">
+                    
+                    <div class="nice-select select-filter list-page" tabindex="0"><span class="current">Show: 50</span>
+                        <ul class="list">  
+                            <li data-value="1" class="option">Show: 50</li>                                                        
+                            <li data-value="2" class="option">Show: 30</li>
+                            <li data-value="3" class="option selected">Show: 10</li>
+                        </ul>
+                    </div>
+                    <div class="nice-select select-filter list-sort" tabindex="0"><span class="current">Sort by (Default)</span>
+                        <ul class="list">  
+                            <li data-value="default" class="option selected">Sort by (Default)</li>                                                        
+                            <li data-value="new" class="option">Newest</li>
+                            <li data-value="old" class="option">Oldest</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="flat-animate-tab">
+                <div class="tab-content">
+                    <div class="tab-pane active show" id="gridLayout" role="tabpanel">
+                        <div class="row">
+
+                            
+                            <div class="col-xl-12 col-lg-12 flat-animate-tab">
+                                <div class="tab-content">
+                                    <div class="tab-pane active show" id="gridLayout" role="tabpanel">
+                                        <d class="row">
+                                            {% for property in properties %}
+                                            <div class="col-md-4">
+                                                <div class="homelengo-box">
+                                                    <div class="archive-top">
+                                                        <a href="{% url 'property_detail' property_id=property.id %}" class="images-group">
+                                                            <div class="images-style">
+                                                                {% with property.images.first as first_image %}
+                                                                {% if first_image %}
+                                                                <img class="lazyload" data-src="{{ first_image.image.url }}" src="{{ first_image.image.url }}" alt="img">
+                                                                {% endif %}
+                                                                {% endwith %}
+                                                            </div>
+                                                            <div class="top">
+                                                                <ul class="d-flex gap-6">
+                                                                    <li class="flag-tag primary">Featured</li>
+                                                                    <li class="flag-tag style-1">For Sale</li>
+                                                                </ul>
+                                                                
+                                                            </div>
+                                                            <div class="bottom">
+                                                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                                    <path d="M10 7C10 7.53043 9.78929 8.03914 9.41421 8.41421C9.03914 8.78929 8.53043 9 8 9C7.46957 9 6.96086 8.78929 6.58579 8.41421C6.21071 8.03914 6 7.53043 6 7C6 6.46957 6.21071 5.96086 6.58579 5.58579C6.96086 5.21071 7.46957 5 8 5C8.53043 5 9.03914 5.21071 9.41421 5.58579C9.78929 5.96086 10 6.46957 10 7Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                                                    <path d="M13 7C13 11.7613 8 14.5 8 14.5C8 14.5 3 11.7613 3 7C3 5.67392 3.52678 4.40215 4.46447 3.46447C5.40215 2.52678 6.67392 2 8 2C9.32608 2 10.5979 2.52678 11.5355 3.46447C12.4732 4.40215 13 5.67392 13 7Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                                                </svg>
+                                                                {{property.address}}  
+                                                            </div>
+                                                        </a>
+                                                        
+                                                    </div>
+                                                    <div class="archive-bottom">
+                                                        <div class="content-top">
+                                                            <h6 class="text-capitalize"><a href="{% url 'property_detail' property_id=property.id %}" class="link">{{property.title}}</a></h6>
+                                                                <ul class="meta-list">
+                                                                    <li class="item">
+                                                                        <i class="icon icon-bed"></i>
+                                                                        <span class="text-variant-1">Beds:</span>
+                                                                        <span class="fw-6">{{property.bedrooms}}</span>
+                                                                    </li>
+                                                                    <li class="item">
+                                                                        <i class="icon icon-bath"></i>
+                                                                        <span class="text-variant-1">Baths:</span>
+                                                                        <span class="fw-6">{{property.bathrooms}}</span>
+                                                                    </li>
+                                                                    <li class="item">
+                                                                        <i class="icon icon-sqft"></i>
+                                                                        <span class="text-variant-1">Sqft:</span>
+                                                                        <span class="fw-6">{{property.size}}</span>
+                                                                    </li>
+                                                                </ul>
+                                                            
+                                                        </div>
+                                                       
+                                                        <div class="content-bottom">
+                                                            <div class="d-flex gap-8 align-items-center">
+                                                                <div class="avatar avt-40 round">
+                                                                    <img src="{{property.agent.profile_picture.url}}" alt="avt">
+                                                                </div>
+                                                                <span>{{property.agent.first_name}} {{property.agent.last_name}}</span>
+                                                            </div>
+                                                            <h6 class="price">₦{{property.price}}</h6>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            
+                            
+                                            {% empty %}
+                                            <p>No Properties Found</p>
+                                            {% endfor %}
+                            
+                        </div>
+                            <!-- Pagination -->
+                            <ul class="wd-navigation mt-20">
+                                {% if properties.has_previous %}
+                                    <li>
+                                        <a href="?page={{ properties.previous_page_number }}
+                                            {% for key, value in request.GET.items %}
+                                                {% if key != 'page' %}&{{ key }}={{ value }}{% endif %}
+                                            {% endfor %}" 
+                                            class="nav-item">
+                                            <i class="icon icon-arr-l"></i>
+                                        </a>
+                                    </li>
+                                {% endif %}
+
+                                {% for num in properties.paginator.page_range %}
+                                    {% if num == properties.number %}
+                                        <li><a href="#" class="nav-item active">{{ num }}</a></li>
+                                    {% elif num > properties.number|add:"-3" and num < properties.number|add:"3" %}
+                                        <li>
+                                            <a href="?page={{ num }}
+                                                {% for key, value in request.GET.items %}
+                                                    {% if key != 'page' %}&{{ key }}={{ value }}{% endif %}
+                                                {% endfor %}" class="nav-item">
+                                                {{ num }}
+                                            </a>
+                                        </li>
+                                    {% endif %}
+                                {% endfor %}
+                        
+                                {% if properties.paginator.num_pages > properties.number|add:"2" %}
+                                    <li><a href="#" class="nav-item">...</a></li>
+                                {% endif %}
+                        
+                                {% if properties.has_next %}
+                                    <li>
+                                        <a href="?page={{ properties.next_page_number }}
+                                            {% for key, value in request.GET.items %}
+                                                {% if key != 'page' %}&{{ key }}={{ value }}{% endif %}
+                                            {% endfor %}" 
+                                            class="nav-item">
+                                            <i class="icon icon-arr-r"></i>
+                                        </a>
+                                    </li>
+                                {% endif %}
+                            </ul>
+                        </div>
+                </div>
+            </div>
+            
+        </div>
+    </section>
+
+{% endblock %}

@@ -1,0 +1,216 @@
+{% extends 'properties/base.html' %}
+
+{% block title %}Our Service{% endblock %}
+
+{% block content %}
+
+    <!-- preload -->
+    <div class="preload preload-container">
+        <div class="preload-logo">
+            <div class="spinner"></div>
+            <span class="icon icon-villa-fill"></span>
+        </div>
+    </div>
+    <!-- /preload -->
+
+    <div id="wrapper">
+        <div id="pagee" class="clearfix">
+            
+                <!-- Mobile Menu  -->
+                <div class="close-btn"><span class="icon flaticon-cancel-1"></span></div>    
+                <div class="mobile-menu">
+                    <div class="menu-backdrop"></div>                            
+                    <nav class="menu-box">
+                        <div class="nav-logo"><a href="/"><img src="../../../static/images/logo/logo@2x.png" alt="nav-logo" width="174" height="44"></a></div>
+                        <div class="bottom-canvas">
+                            <!-- <div class="login-box flex align-center">
+                                <a href="#modalLogin" data-bs-toggle="modal">Login</a>
+                                <span>/</span>
+                                <a href="#modalRegister" data-bs-toggle="modal">Register</a>
+                            </div> -->
+                            <div class="menu-outer"></div>
+                            <!-- <div class="button-mobi-sell">
+                                <a class="tf-btn primary" href="add-property.html">Submit Property</a>
+                            </div>  -->
+                            <div class="mobi-icon-box">
+                                <div class="box d-flex align-items-center">
+                                    <span class="icon icon-phone2"></span>
+                                    <div>+234 803 930 1830</div>
+                                </div>
+                                <div class="box d-flex align-items-center">
+                                    <span class="icon icon-mail"></span>
+                                    <div>Bezaleelsproperties@gmail.com</div>
+                                </div>
+                            </div>
+                        </div>
+                    </nav>                
+                </div>
+                <!-- End Mobile Menu -->
+            </header>
+            <!-- End Main Header -->
+
+            <!-- Page Title -->
+            <section class="flat-title-page" style="background-image: url(../../../static/images/page-title/national.jpg);">
+                <div class="container">
+                    <div class="breadcrumb-content">
+                        <ul class="breadcrumb">
+                            <li><a href="/" class="text-white">Home</a></li>
+                            <li class="text-white">/ Pages</li>
+                            <li class="text-white">/ Our Services</li>
+                        </ul>
+                        <h1 class="text-center text-white title">Our Services</h1>
+                    </div>
+                </div>
+            </section>
+            <!-- End Page Title -->
+
+          
+            <!-- Service  -->
+            <section class="flat-section">
+                <div class="container">
+                    <div class="box-title text-center wow fadeInUpSmall" data-wow-delay=".2s" data-wow-duration="2000ms">
+                        <div class="text-subtitle text-primary">Explore Cities</div>
+                        {% comment %} <h3 class="title mt-4">Our Location For You</h3> {% endcomment %}
+                    </div>
+                    <div class="tf-grid-layout md-col-3 wow fadeInUpSmall" data-wow-delay=".4s" data-wow-duration="2000ms">
+                        <div class="box-service">
+                            <div class="image">
+                                <img class="lazyload" data-src="../../../static/images/service/home-1.png" src="../../../static/images/service/home-1.png" alt="image-location">
+                            </div>
+                            <div class="content">
+                                <h5 class="title">Buy A New Home</h5>
+                                <p class="description">Discover your dream home effortlessly. Explore diverse properties and expert guidance for a seamless buying experience.</p>
+                                <!--<a href="{% url 'all_properties' %}" class="tf-btn btn-line">Learn More <span class="icon icon-arrow-right2"></span></a>-->
+                            </div>
+                        </div>
+                        <div class="box-service">
+                            <div class="image">
+                                <img class="lazyload" data-src="../../../static/images/service/home-2.png" src="../../../static/images/service/home-2.png" alt="image-location">
+                            </div>
+                            <div class="content">
+                                <h5 class="title">Sell your property</h5>
+                                <p class="description">Sell confidently with expert guidance and effective strategies, showcasing your property's best features for a successful sale.</p>
+                                <!--<a href="{% url 'about' %}" class="tf-btn btn-line">Learn More <span class="icon icon-arrow-right2"></span></a>-->
+                            </div>
+                        </div>
+                        <div class="box-service">
+                            <div class="image">
+                                <img class="lazyload" data-src="../../../static/images/service/home-3.png" src="../../../static/images/service/home-3.png" alt="image-location">
+                            </div>
+                            <div class="content">
+                                <h5 class="title">Buy a Land</h5>
+                                <p class="description">Discover your perfect rental effortlessly. Explore a diverse variety of listings tailored precisely to suit your unique lifestyle needs.</p>
+                                <!--<a href="{% url 'all_properties' %}" class="tf-btn btn-line" id="land-link">Learn More <span class="icon icon-arrow-right2"></span></a>-->
+                            </div>
+                        </div>
+                    </div>
+                     
+                </div>
+            </section>
+            <!-- End Service -->
+            <!-- partner -->
+            <section class="flat-section pt-0">
+                <div class="container2">
+                    
+                   
+                    </div>
+                </div>
+            </section>
+            <!-- End partner -->
+           
+            <!-- faq -->
+            <!-- <section class="flat-section">
+                <div class="container"> 
+                    <div class="tf-faq">
+                        <div class="box-title style-1 text-center wow fadeInUpSmall" data-wow-delay=".2s" data-wow-duration="2000ms">
+                            <div class="text-subtitle text-primary">Faqs</div>
+                            <h3 class="title mt-4">Frequently Asked Questions</h3>
+                        </div>
+                        <ul class="box-faq" id="wrapper-faq">
+                            <li class="faq-item">
+                                <a href="#accordion-faq-one" class="faq-header collapsed" data-bs-toggle="collapse" aria-expanded="false" aria-controls="accordion-faq-one">
+                                    Why should I use your services?
+                                </a>
+                                <div id="accordion-faq-one" class="collapse" data-bs-parent="#wrapper-faq">
+                                    <p class="faq-body">
+                                        Once your account is set up and you've familiarized yourself with the platform, you are ready to start using our services. Whether it's accessing specific features, making transactions, or utilizing our tools, you'll find everything you need at your fingertips.
+                                    </p>
+                                </div>
+                            </li>
+                            <li class="faq-item active">
+                                <a href="#accordion-faq-two" class="faq-header" data-bs-toggle="collapse" aria-expanded="false" aria-controls="accordion-faq-two">
+                                    How do I get started with your services?
+                                </a>
+                                <div id="accordion-faq-two" class="collapse show" data-bs-parent="#wrapper-faq">
+                                    <p class="faq-body">
+                                        Once your account is set up and you've familiarized yourself with the platform, you are ready to start using our services. Whether it's accessing specific features, making transactions, or utilizing our tools, you'll find everything you need at your fingertips.
+                                    </p>
+                                </div>
+                            </li>
+                            <li class="faq-item">
+                                <a href="#accordion-faq-three" class="faq-header collapsed" data-bs-toggle="collapse" aria-expanded="false" aria-controls="accordion-faq-three">
+                                    How secure are your services?
+                                </a>
+                                <div id="accordion-faq-three" class="collapse" data-bs-parent="#wrapper-faq">
+                                    <p class="faq-body">
+                                        Once your account is set up and you've familiarized yourself with the platform, you are ready to start using our services. Whether it's accessing specific features, making transactions, or utilizing our tools, you'll find everything you need at your fingertips.
+                                    </p>
+                                </div>
+                            </li>
+                            <li class="faq-item">
+                                <a href="#accordion-faq-four" class="faq-header collapsed" data-bs-toggle="collapse" aria-expanded="false" aria-controls="accordion-faq-four">
+                                    Is there customer support available?
+                                </a>
+                                <div id="accordion-faq-four" class="collapse" data-bs-parent="#wrapper-faq">
+                                    <p class="faq-body">
+                                        Once your account is set up and you've familiarized yourself with the platform, you are ready to start using our services. Whether it's accessing specific features, making transactions, or utilizing our tools, you'll find everything you need at your fingertips.
+                                    </p>
+                                </div>
+                            </li>
+                            <li class="faq-item">
+                                <a href="#accordion-faq-five" class="faq-header collapsed" data-bs-toggle="collapse" aria-expanded="false" aria-controls="accordion-faq-five">
+                                    How can I update my account information?
+                                </a>
+                                <div id="accordion-faq-five" class="collapse" data-bs-parent="#wrapper-faq">
+                                    <p class="faq-body">
+                                        Once your account is set up and you've familiarized yourself with the platform, you are ready to start using our services. Whether it's accessing specific features, making transactions, or utilizing our tools, you'll find everything you need at your fingertips.
+                                    </p>
+                                </div>
+                            </li>
+                        </ul>
+                        
+                    </div>
+                </div>
+            </section>
+            /faq -->
+            <!-- banner -->
+            <!-- <section class="flat-section pt-0 flat-banner wow fadeInUpSmall" data-wow-delay=".2s" data-wow-duration="2000ms">
+                <div class="container">
+                    <div class="wrap-banner bg-primary-new">
+                        <div class="box-left">
+                            <div class="box-title">
+                                <div class="text-subtitle text-primary">Become Partners</div>
+                                <h3 class="mt-4 fw-8">List your Properties on Bezaleelcourt, join Us Now!</h3>
+                            </div>
+                            <a href="{% url 'direct_contact' %}" class="tf-btn btn-view primary size-1 hover-btn-view">Become A Hosting <span class="icon icon-arrow-right2"></span></a>
+                        </div>
+                        <div class="box-right">
+                            <img src="../../../static/images/banner/banner-property-1.jpg" alt="image">
+                        </div>
+                    </div>
+                </div>
+            </section> -->
+            <!-- end banner -->
+ 
+        </div>
+    </div>
+
+                <script>
+        document.getElementById("land-link").addEventListener("click", function(event) {
+            event.preventDefault();
+            let url = this.getAttribute("href");
+            window.location.href = url + "?type=land";
+        });
+    </script>
+
+    {% endblock %}
