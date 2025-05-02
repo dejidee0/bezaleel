@@ -127,6 +127,11 @@ DATABASES = {
         "PASSWORD": os.getenv("DB_PASSWORD"),
         "HOST": os.getenv("DB_HOST"),
         "PORT": os.getenv("DB_PORT"),
+          "OPTIONS": {
+            # This forces IPv4 connections
+            'gssencmode': 'disable',  # Disable GSSAPI encryption
+            'options': '-c AddressFamily=inet',  # Force IPv4 only
+        },
     }
 }
 
