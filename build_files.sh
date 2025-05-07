@@ -1,27 +1,12 @@
 #!/usr/bin/env bash
+# Exit on error
+set -o errexit
 
-set -e  # Exit on error
-
-echo "Creating and activating virtual environment..."
-python3 -m venv venv
-source venv/bin/activate
-
-echo "Installing dependencies..."
-pip install --upgrade pip
+# Modify this line as needed for your package manager (pip, poetry, etc.)
 pip install -r requirements.txt
 
-echo "Applying migrations..."
-python3 manage.py makemigrations --noinput
-python3 manage.py migrate --noinput
+# Convert static asset files
+python manage.py collectstatic --no-input
 
-echo "Collecting static files..."
-python3 manage.py collectstatic --noinput
-
-echo "Creating output directory..."
-mkdir -p vercel/output
-
-echo "Moving static files..."
-cp -r staticfiles vercel/output/static  # Ensure 'staticfiles' is correct
-
-
-echo "Build script executed successfully."
+# Apply any outstanding database migrations
+python manage.py migrate
