@@ -1,0 +1,10 @@
+.newLogo {
+  height: 70px;
+  width: auto;
+}
+@media (max-width: 1098px) {
+  .newLogo {
+    width: auto;
+    height: 60px;
+  }
+}

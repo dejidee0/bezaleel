@@ -32,6 +32,11 @@
       type="text/css"
       href="{% static 'css/styles.css' %}"
     />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'css/newstyle.css' %}"
+    />
 
     <!-- Favicon and Touch Icons -->
     <link rel="shortcut icon" href="{% static 'images/logo/favicon.png' %}" />
@@ -65,10 +70,11 @@
                       <div class="logo">
                         <a href="{% url 'home' %}"
                           ><img
-                            src="{% static 'images/logo/logo@2x.png' %}"
+                            src="{% static 'images/logo/logo@2xnew.png' %}"
                             alt="logo"
                             width="190"
                             height="100"
+                            class="newLogo"
                         /></a>
                       </div>
                     </div>
@@ -90,7 +96,9 @@
                               <a href="{% url 'services' %}">Our Services</a>
                             </li>
                             <li>
-                              <a href="{% url 'direct_contact' %}">Contact Us</a>
+                              <a href="{% url 'direct_contact' %}"
+                                >Contact Us</a
+                              >
                             </li>
                             <!-- <li><a href="{% url 'faq' %}">FAQs</a></li>     -->
                             {% comment %}
@@ -200,7 +208,6 @@
                     <span class="icon icon-mail"></span>
                     <div>Info@bezaleelcourt.com</div>
                   </div>
-                  
                 </div>
               </div>
             </nav>
@@ -226,7 +233,8 @@
                       height="48"
                   /></a>
                 </div>
-                {% comment %} <div class="wd-social">
+                {% comment %}
+                <div class="wd-social">
                   <span>Follow Us:</span>
                   <ul class="list-social d-flex align-items-center">
                     <li>
@@ -327,7 +335,8 @@
                       </a>
                     </li>
                   </ul>
-                </div> {% endcomment %}
+                </div>
+                {% endcomment %}
               </div>
             </div>
           </div>
@@ -359,7 +368,6 @@
                         <i class="icon icon-mail fs-20 text-variant-2"></i>
                         <p class="text-white">Info@bezaleelcourt.com</p>
                       </li>
-                      
                     </ul>
                   </div>
                 </div>
@@ -371,7 +379,9 @@
                     <div class="tf-collapse-content">
                       <ul class="mt-10 navigation-menu-footer">
                         <li>
-                          <a href="{% url 'all_properties' %}" class="caption-1 text-variant-2"
+                          <a
+                            href="{% url 'all_properties' %}"
+                            class="caption-1 text-variant-2"
                             >Listings</a
                           >
                         </li>
@@ -403,7 +413,8 @@
                     </div>
                   </div>
                 </div>
-                {% comment %} <div class="col-lg-2 col-md-6">
+                {% comment %}
+                <div class="col-lg-2 col-md-6">
                   <div class="footer-cl-3 footer-col-block">
                     <div class="fw-7 text-white footer-heading-mobile">
                       Our Company
@@ -441,7 +452,8 @@
                       </ul>
                     </div>
                   </div>
-                </div> {% endcomment %}
+                </div>
+                {% endcomment %}
                 <div class="col-lg-4 col-md-6">
                   <div class="footer-cl-4 footer-col-block">
                     <div class="fw-7 text-white footer-heading-mobile">
@@ -507,7 +519,9 @@
                   <li><a href="{% url 'services' %}">Terms Of Services</a></li>
 
                   <!-- <li><a href="pricing.html">Privacy Policy</a></li> -->
-                  <li><a href="{% url 'direct_contact' %}">Cookie Policy</a></li>
+                  <li>
+                    <a href="{% url 'direct_contact' %}">Cookie Policy</a>
+                  </li>
                 </ul>
               </div>
             </div>
