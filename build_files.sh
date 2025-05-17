@@ -11,6 +11,9 @@ pip install -r requirements.txt
 echo "Running migrations..."
 python manage.py migrate --noinput
 
+echo "Installing Puput Initial Data"
+python manage.py puput_initial_data
+
 # Collect static files
 echo "Collecting static files..."
 python manage.py collectstatic --noinput
