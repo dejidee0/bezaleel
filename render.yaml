@@ -3,8 +3,8 @@ services:
     name: bezaleelcourt-1
     env: python
     region: oregon
-    buildCommand: echo "Starting Workflow................."
-    startCommand: ./build_files.sh
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn property.wsgi:application --bind 0.0.0.0:$PORT
     envVars:
       - key: DATABASE_URL
         fromDatabase:
