@@ -1,25 +1,24 @@
 {
   "version": 2,
   "builds": [
-      {
-          "src": "./build_files.sh",
-          "use": "@vercel/static-build",
-          "config": { "distDir": "vercel/output" }
-      },
-      {
-          "src": "property/wsgi.py",
-          "use": "@vercel/python",
-          "config": { "runtime": "edge" }
-      }
+    {
+      "src": "build_files.sh",
+      "use": "@vercel/static-build",
+      "config": { "distDir": "staticfiles" }
+    },
+    {
+      "src": "property/wsgi.py",
+      "use": "@vercel/python"
+    }
   ],
   "routes": [
-      {
-          "src": "/static/(.*)",
-          "dest": "/static/"
-      },
-      {
-          "src": "/(.*)",
-          "dest": "property/wsgi.py"
-      }
+    {
+      "src": "/static/(.*)",
+      "dest": "/static/$1"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "property/wsgi.py"
+    }
   ]
 }
