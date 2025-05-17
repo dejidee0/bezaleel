@@ -24,4 +24,4 @@ python manage.py create_superuser
 
 # Start the server using gunicorn
 echo "Starting gunicorn..."
-gunicorn property.wsgi:application --bind 0.0.0.0:$PORT
+gunicorn property.wsgi:application --bind 0.0.0.0:$PORT --timeout 120
