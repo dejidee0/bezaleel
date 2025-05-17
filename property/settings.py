@@ -72,7 +72,7 @@ INSTALLED_APPS += PUPUT_APPS
 
 WAGTAIL_SITE_NAME = 'Bezaleel blog'
 
-WAGTAILADMIN_BASE_URL = 'http://localhost:8000/'
+WAGTAILADMIN_BASE_URL = 'https://bezaleel.onrender.com/'
 
 
 
