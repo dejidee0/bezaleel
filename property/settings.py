@@ -14,6 +14,8 @@ import os
 from pathlib import Path
 from dotenv import load_dotenv
 from supabase import create_client
+from puput import PUPUT_APPS
+
 
 
 load_dotenv()  # take environment variables from .env.
@@ -61,15 +63,23 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-
     'users.apps.UsersConfig',
     'home',
 
 ]
 
+INSTALLED_APPS += PUPUT_APPS
+
+WAGTAIL_SITE_NAME = 'Bezaleel blog'
+
+WAGTAILADMIN_BASE_URL = 'http://localhost:8000/'
+
+
+
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 MIDDLEWARE = [
+    'wagtail.contrib.redirects.middleware.RedirectMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
