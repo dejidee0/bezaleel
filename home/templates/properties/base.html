@@ -31,6 +31,11 @@
       type="text/css"
       href="{% static 'css/styles.css' %}"
     />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'css/newstyle.css' %}"
+    />
 
     <!-- Favicon and Touch Icons -->
     <link rel="shortcut icon" href="{% static 'images/logo/favicon.png' %}" />
@@ -66,8 +71,9 @@
                           ><img
                             src="{% static 'images/logo/bz-remove.png' %}"
                             alt="logo"
-                            width="125"
+                            width="145"
                             height="100"
+                            class="bzn-new2"
                         /></a>
                       </div>
                     </div>
@@ -220,7 +226,7 @@
                 <div class="footer-logo">
                   <a href="/"
                     ><img
-                      src="../../../static/images/logo/logo-footer@2x.png"
+                      src="../../../static/images/logo/bz-remove.png"
                       alt="logo"
                       width="166"
                       height="48"
@@ -370,7 +376,9 @@
                       Categories
                     </div>
                     <div class="tf-collapse-content">
-                      <ul class="mt-10 navigation-menu-footer">
+                      <ul
+                        class="mt-10 navigation-menu-footer space-y-2 relative z-10"
+                      >
                         <li>
                           <a
                             href="{% url 'all_properties' %}"
@@ -378,7 +386,6 @@
                             >Listings</a
                           >
                         </li>
-
                         <li>
                           <a
                             href="{% url 'services' %}"
@@ -386,7 +393,6 @@
                             >Our Services</a
                           >
                         </li>
-
                         <li>
                           <a
                             href="{% url 'about' %}"
@@ -394,7 +400,6 @@
                             >About Us</a
                           >
                         </li>
-
                         <li>
                           <a
                             href="{% url 'direct_contact' %}"
@@ -402,10 +407,25 @@
                             >Contact Us</a
                           >
                         </li>
+                        <li>
+                          <a href="/blog" class="caption-1 text-variant-2"
+                            >Real Estate Blogs</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            href="/motivation-and-inspiration"
+                            class="caption-1 text-variant-2"
+                            >Motivation & Inspiration Blogs</a
+                          >
+                        </li>
+
+                        <!-- Blog Dropdown -->
                       </ul>
                     </div>
                   </div>
                 </div>
+
                 {% comment %}
                 <div class="col-lg-2 col-md-6">
                   <div class="footer-cl-3 footer-col-block">
