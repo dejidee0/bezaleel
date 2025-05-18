@@ -1103,7 +1103,7 @@ label {
 
 .main-header .logo-box {
   position: relative;
-  background-color: blue;
+
   z-index: 10;
 }
 
