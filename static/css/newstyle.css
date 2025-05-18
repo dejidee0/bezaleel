@@ -1,6 +1,7 @@
 @media (max-width: 1098px) {
   .logo-box .logo .bzn-new2 {
-    height: 100px;
-    width: 100px; /* Or use 'px', 'vw', etc., depending on what you want */
+    height: auto;
+
+    width: 120px; /* Or use 'px', 'vw', etc., depending on what you want */
   }
 }

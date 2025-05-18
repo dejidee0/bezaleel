@@ -979,6 +979,7 @@ label {
 .main-header.is-fixed {
   box-shadow: 0px 4px 18px 0px rgba(0, 0, 0, 0.0784313725);
   background-color: #ffffff;
+
   border-bottom: 1px solid #e4e4e4;
 }
 
@@ -1099,13 +1100,10 @@ label {
 .main-header .main-box .outer-container {
   position: relative;
 }
-.main-header .newLogo {
-  height: 1090px;
-  width: 10px;
-}
 
 .main-header .logo-box {
   position: relative;
+  background-color: blue;
   z-index: 10;
 }
 
@@ -1126,6 +1124,7 @@ label {
 
 .main-header .header-lower {
   position: relative;
+
   transition: all 500ms ease;
   -moz-transition: all 500ms ease;
   -webkit-transition: all 500ms ease;
